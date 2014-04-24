@@ -15,6 +15,4 @@
  #
 ################################################################
 
-oasis setup && ocaml setup.ml -configure --enable-tests && ocaml setup.ml -all
-
-mpiexec -n 4 bin/IMITATOR ex/flipflop.imi ex/flipflop.v0 -mode cover -distributed -cart -verbose medium
+oasis setup && ocaml setup.ml -configure --enable-tests && ocaml setup.ml -all && mpiexec -n 4 bin/IMITATOR ex/flipflop.imi ex/flipflop.v0 -mode cover -distributed -cart -verbose medium

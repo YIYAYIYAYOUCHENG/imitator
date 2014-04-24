@@ -92,13 +92,13 @@ let master () =
 
     print_message Debug_standard ("[Master] Hello world!");
     
-	for i = 1 to 1000 do
+	for i = 1 to 100 do
 		print_message Debug_standard ("[Master] Waiting for a pull request");
 
 		(* Get the pull_request *)
 		let source_rank, tile_nature_option = receive_pull_request_and_store_constraint () in
 	
-		print_message Debug_standard ("[Master] Got a pull request from slave " ^ (string_of_int source_rank) ^ "");
+		print_message Debug_standard ("[Master] Got a " ^ (string_of_int i) ^ "th pull request from slave " ^ (string_of_int source_rank) ^ "");
 			
 	done; (* while more pi0 *)
 
@@ -130,15 +130,15 @@ let worker () =
     let finished = ref false in
 
     (* Start: ask for some work *)
-    send_work_request();
+(*     send_work_request(); *)
 
     print_message Debug_standard ("[Worker " ^ (string_of_int rank) ^ "] sent pull request to the master.");
 
-    while true do
+    for i = 1 to 30 do
 
 		(* Send the result *)
-		send_string "dfgldfkglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgkl";
-		print_message Debug_standard ("[Worker " ^ (string_of_int rank) ^ "] Sent a constraint.");
+		send_string "dfgldfkdfgldfkglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgkldfgldfkglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgkldfgldfkglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgklglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgkl";
+		print_message Debug_standard ("[Worker " ^ (string_of_int rank) ^ "] Sent a constraint #" ^ (string_of_int i));
     done;
 	print_message Debug_standard ("[Worker " ^ (string_of_int rank) ^ "] I'm done.");
 ;;

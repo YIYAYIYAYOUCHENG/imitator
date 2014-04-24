@@ -51,9 +51,9 @@ val send_string : (*LinearConstraint.p_linear_constraint*)string -> unit
 
 (* val send_pi0 : pi0_list -> rank -> unit *)
 
-val send_work_request : unit -> unit
+(* val send_work_request : unit -> unit *)
 
-val send_finished : rank -> unit
+(* val send_finished : rank -> unit *)
 
 val receive_pull_request : unit -> pull_request
 

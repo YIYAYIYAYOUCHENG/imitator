@@ -98,7 +98,8 @@ type global_debug_mode_type =
 	| Debug_mode_set of debug_mode
 
 (* set to standard by default *)
-let global_debug_mode = ref (Debug_mode_set Debug_standard)
+(*** WARNING: hard coded ***)
+let global_debug_mode = ref (Debug_mode_set Debug_medium)
 
 let timed_mode = ref false
 

@@ -396,8 +396,8 @@ let send_pi0 pi0 slave_rank =
 (* 	print_newline() *)*)
 
 
-let send_work_request () =
-	Mpi.send (weird_stuff()) masterrank (int_of_slave_tag Slave_work_tag) Mpi.comm_world
+(*(*let send_work_request () =
+	Mpi.send (weird_stuff()) masterrank (int_of_slave_tag Slave_work_tag) Mpi.comm_world*)*)
 
 
 let receive_pull_request () =

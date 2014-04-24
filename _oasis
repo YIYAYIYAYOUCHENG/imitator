@@ -19,7 +19,7 @@ License:     GPL-3.0
 
 # Handling build number (using Python)
 #PreBuildCommand: python gen_build_info.py
-#PostBuildCommand: python incrementer.py ; echo "Copying main binary file to bin/IMITATOR ..." ; cp _build/src/IMITATOR.native bin/IMITATOR
+PostBuildCommand: echo "Copying main binary file to bin/IMITATOR ..." ; cp _build/src/IMITATOR.native bin/IMITATOR
 
 
 Executable imitator

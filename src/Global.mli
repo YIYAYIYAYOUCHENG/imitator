@@ -26,9 +26,9 @@ open DynArray
 (*** TODO: separate global wrt Ocaml from global wrt IMITATOR ***)
 
 
-val program_name: string
+(*val program_name: string
 
-val version_string: string
+val version_string: string*)
 
 (* val header_string: string *)
 
@@ -83,7 +83,7 @@ val get_debug_mode : unit -> debug_mode
 (****************************************************************)
 (** Global types *)
 (****************************************************************)
-
+(*(*
 (** Mode for IMITATOR *)
 type imitator_mode =
 	(** Translation to another language: no analysis *)
@@ -99,7 +99,7 @@ type imitator_mode =
 	(** Look for the border using the cartography*)
 	| Border_cartography
 	(** Randomly pick up values for a given number of iterations *)
-	| Random_cartography of int
+	| Random_cartography of int*)*)
 
 
 (****************************************************************)
