@@ -28,34 +28,6 @@ let cnt = ref 0
 (* ** *** *** ***** *******       UTILS       ******* ***** *** *** ** *)
 
 
-(* Store the result of a computation.                                  *)
-
-(*let store result source =
-	print_string "MASTER - recv result" ; print_string result;
-	print_string " from ";
-	print_int source ;
-	print_newline();
-	0
-;;*)
-
-(* Returns the next set of input data                                  *)
-(* This is where the master's intelligence will come.                  *)
-(*                                                                     *)
-(* Returns a couple: the first element is the size of the data, the    *)
-(* second one is the data itself. The data is serialized and ready to  *)
-(* be sent.                                                            *)
-
-(*let get_data () =
-	let size = 1 + ( Random.int 25 ) in
-	let buff = String.create size in
-	let alphanum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" in
-	let len = String.length alphanum in
-	for i = 0 to pred size do
-		buff.[i] <- alphanum.[Random.int len]
-	done;
-	cnt := !cnt + 1;
-	(size, buff)
-;;*)
 
 
 (* Initialize a slave                                                  *)
@@ -137,7 +109,7 @@ let worker () =
     for i = 1 to 30 do
 
 		(* Send the result *)
-		send_string "dfgldfkdfgldfkglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgkldfgldfkglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgkldfgldfkglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgklglfdkglfdkgldkflgkdflgkfdlkgdflkgldfkgldfkgldfklgkdflgkldfklgkl";
+		send_string "1*0g8a1*1g3a-1*0>-17a1*0+1*1g24a1*0g8a-1*0>-17a-1*0>-17a1*0+1*1g17a1*0g8a1*1g3a-1*0>-17a1*0g8a1*1g3a-1*0>-17a1*1g3a1*0+1*1g17a1*0g8a1*0+1*1g24a1*0g8a-1*0>-17a1*1g3a-1*0>-17a1*0g8a1*0+1*1g17a-1*0>-17a1*1g3a1*0g8a-1*0>-17a1*1g3a1*0g8a-1*0>-17a1*1g3a1*0g8a1*1g3a1*0g8a1*1g3a1*0g8a1*1g3a1*0g8,B|B|false|13|12|9|0.0161981582642";
 		print_message Debug_standard ("[Worker " ^ (string_of_int rank) ^ "] Sent a constraint #" ^ (string_of_int i));
     done;
 	print_message Debug_standard ("[Worker " ^ (string_of_int rank) ^ "] I'm done.");
