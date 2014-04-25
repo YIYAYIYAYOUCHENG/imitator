@@ -15,4 +15,4 @@
  #
 ################################################################
 
-mpiexec -n 4 bin/PaTATOR ex/flipflop.imi ex/flipflop.v0 -mode cover -distributed -cart -verbose mediumvsss
+mpiexec -n 4 bin/PaTATOR
