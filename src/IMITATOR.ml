@@ -130,6 +130,44 @@ end;
 
 
 (**************************************************)
+(* HERE IS THE BEGINNING OF GIA'S WORK *)
+(**************************************************)
+
+List.iter (fun automaton_index -> 
+	print_message Verbose_standard (" Starting investigating automaton " ^ (model.automata_names automaton_index) );
+	List.iter (fun location_index ->
+		print_message Verbose_standard ("   Starting investigating location " ^ (model.location_names automaton_index location_index) );
+		List.iter (fun action_index ->
+			print_message Verbose_standard ("     Starting investigating action " ^ (model.action_names action_index) );
+			List.iter (fun (guard, clock_updates, _, destlocation_index) ->
+				print_message Verbose_standard ("       Starting investigating some transition guarded by " ^ (LinearConstraint.string_of_pxd_linear_constraint model.variable_names guard));
+					List.iter (fun clock_index ->
+					print_message Verbose_standard ("         Starting checking clock " ^ (model.variable_names clock_index));
+						if LinearConstraint.pxd_is_constrained guard clock_index then (print_message Verbose_standard "This clock is bound!!");
+						
+						
+						(** MORE WORK HERE **)
+						
+						
+					) model.clocks;
+			) (model.transitions automaton_index location_index action_index);
+		) (model.actions_per_location automaton_index location_index);
+	) (model.locations_per_automaton automaton_index);
+	
+
+) model.automata;
+
+terminate_program();
+
+
+
+(**************************************************)
+(* HERE IS THE END OF GIA'S WORK *)
+(**************************************************)
+
+
+
+(**************************************************)
 (* Case translation *)
 (**************************************************)
 
